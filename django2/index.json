@@ -48,7 +48,7 @@
   "environment": {
       "uilayout": "editor-terminal",
       "uieditorpath": "/var/projects",
-      "exclusionPatterns": ["__*__.py", "./myproject/myprojectenv/*"]
+      "exclusionPatterns": ["*/__*__.py", "./myproject/myprojectenv/*"]
   },
   "backend": {
     "imageid": "ubuntu"
