@@ -10,6 +10,7 @@ services:
          - "5432:5432"
       
    demo:
+      container_name: "pgdemo"
       image: "python:3"
       depends_on:
          - "db"
@@ -19,4 +20,4 @@ services:
       tty: true
       command: bash -c 'apt-get update; apt-get -y install postgresql-client; while !</dev/tcp/db/5432; do sleep 10; done; bash'
       volumes:
-        - ./djangoprojects:/var/projects/
+        - .:/var/projects/

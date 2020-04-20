@@ -15,19 +15,23 @@
       },
       {
         "title": "Connecting Django to Postgres",
-        "text": "step3.md"
+        "text": "step3.md",
+        "courseData": "step3Data.sh"
       },
       {
         "title": "Defining data models",
-        "text": "step4.md"
+        "text": "step4.md",
+        "courseData": "step4Data.sh"
       },
       {
         "title": "Creating and running a schema migration",
-        "text": "step5.md"
+        "text": "step5.md",
+        "courseData": "step5Data.sh"
       },
       {
         "title": "Creating Django views to present your data",
-        "text": "step6.md"
+        "text": "step6.md",
+        "courseData": "step6Data.sh"
       }
     ],
     "intro": {
@@ -38,17 +42,16 @@
       "text": "finish.md"
     },
     "assets": {
-      "host01": [{"file": "*", "target": "~/"}]
+      "client": [
+         {"file": "docker-compose.yml", "target": "~/"},
+         {"file": "myproject/*", "target": "~/myproject"},         
+      ]
     }
  },
   "environment": {
     "showdashboard": true,
     "uilayout": "editor-terminal",
-    "uieditorpath": "~/djangoprojects",
-     "terminals": [
-         {"name": "host01", "target": "host01"},
-         {"name": "client01", "target": "client01"}
-     ]
+    "uieditorpath": "~/tutorial"
   },
   "backend": {
     "imageid": "docker"

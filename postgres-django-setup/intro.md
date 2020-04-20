@@ -10,3 +10,5 @@ Scenario: you have data that you need to display on the web. A Postgres database
 6. Create Django views to present your data
 
 Prefer to work through this locally? You can find all the material used in this tutoral on GitHub: [link]
+
+(Please give it a moment to set up - this will go away once we've built a proper base environment)

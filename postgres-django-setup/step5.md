@@ -8,6 +8,8 @@ python manage.py migrate cars
 
 Take a look in the database, and you’ll see that the table has been created with the format “<project_name>_<object_name>”:
 
+(the next two commands will require you to enter a password - it's "password")
+
 ```
 psql -h db -d demo -U postgres -c '\d'
 ```{{execute}}

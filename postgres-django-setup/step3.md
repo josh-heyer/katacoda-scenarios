@@ -28,10 +28,6 @@ django-admin.py startproject myproject .
 
 This creates a subdirectory named "myproject" under the current directory with an initial project configuration. By default, Django is configured to use SQLite as its backend. To use Postgres instead, “myproject/settings.py” needs to be updated:
 
-```
-vim myproject/settings.py
-```
-
 Scroll down to the Database section, and replace it with settings for Postgres
 
 ```
