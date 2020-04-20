@@ -19,4 +19,4 @@ services:
       tty: true
       command: bash -c 'apt-get update; apt-get -y install postgresql-client; while !</dev/tcp/db/5432; do sleep 10; done; bash'
       volumes:
-        - /djangoprojects:/var/projects/
+        - ./djangoprojects:/var/projects/
