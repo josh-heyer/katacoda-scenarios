@@ -1,0 +1,22 @@
+version: "3"
+services:
+   db:
+      image: "postgres"
+      container_name: "postgres"
+      environment:
+         POSTGRES_PASSWORD: password
+         POSTGRES_DB: demo
+      ports:
+         - "5432:5432"
+      
+   demo:
+      image: "python:3"
+      depends_on:
+         - "db"
+      ports:
+         - "5000:5000"
+      stdin_open: true
+      tty: true
+      command: bash -c 'apt-get update; apt-get -y install postgresql-client; while !</dev/tcp/db/5432; do sleep 10; done; bash'
+      volumes:
+        - ./djangoprojects:/var/projects/
