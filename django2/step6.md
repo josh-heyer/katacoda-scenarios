@@ -1,6 +1,6 @@
 We need to tell Django how to pull stuff out of the database and display it. In Django, that's done with a "view" - so by editing the `myproject/cars/views.py`{{open}} file, we can accomplish this:
 
-<pre class="file" data-filename="myproject/cars/views.html" data-target="replace">from django.shortcuts import render
+<pre class="file" data-filename="myproject/cars/views.py" data-target="replace">from django.shortcuts import render
 from cars.models import Car, Driver
 
 def car_detail(request, pk):
@@ -51,7 +51,7 @@ Then, we define how the `myproject/cars/templates/car_detail.html`{{open}} templ
 
 Finally, we need to tell the webserver how to route the traffic. First, in `myproject/cars/urls.py`{{open}}, we define how the REST behavior works:
 
-<pre class="file" data-filename="myproject/cars/models.py" data-target="replace">from django.urls import path
+<pre class="file" data-filename="myproject/cars/urls.py" data-target="replace">from django.urls import path
 from . import views
 
 urlpatterns = [

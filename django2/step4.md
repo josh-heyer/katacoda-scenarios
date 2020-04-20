@@ -32,9 +32,9 @@ INSTALLED_APPS = [
 ]
 ```{{copy}}
 
-Let’s tell the framework what a Car and a Driver look like, by defining them in `/myproject/cars/models.py`{{open}}:
+Let’s tell the framework what a Car and a Driver look like, by defining them in `myproject/cars/models.py`{{open}}:
 
-<pre class="file" data-filename="/myproject/cars/models.py" data-target="replace">from django.db import models
+<pre class="file" data-filename="myproject/cars/models.py" data-target="replace">from django.db import models
 
 class Driver(models.Model):
     name = models.TextField()

@@ -1,5 +1,5 @@
 {
-  "title": "Developing a simple Django + Postgres web application v6",
+  "title": "Developing a simple Django + Postgres web application v7",
   "description": "Walk through setting up a local Python development environment to use Postgres and Django",
   "difficulty": "Beginner",
   "time": "10 minutes",
@@ -27,7 +27,8 @@
       },
       {
         "title": "Creating Django views to present your data",
-        "text": "step6.md"
+        "text": "step6.md",
+         "courseData": "step6.sh"
       }
     ],
     "intro": {
