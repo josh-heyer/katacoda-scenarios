@@ -32,7 +32,6 @@ Scroll down to the Database section, and replace it with settings for Postgres
 
 ```
 DATABASES = {
-
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'demo',
@@ -41,7 +40,6 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
     }
-    
 }
 ```
 
@@ -73,9 +71,19 @@ Now, the moment of truth! Start the application up, and point your browser to th
 python manage.py runserver 0.0.0.0:5000
 ```{{execute}}
 
-(this specifies the port as 5000, so try [127.0.0.1:5000](https://[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/cars/1/))
+This specifies the port as 5000, so try <https://[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/>... And, you'll see an error:
 
-If you see the rocket launch, we've successfully configured Django!
+> DisallowedHost at /
 
-To verify that your superuser works, go to the “/admin” page: http://localhost:500/admin, enter the name and password you specified when creating the superuser, and you're in!
+This is **good** - Django is configured by default to protect against [Host forgery attacks](https://docs.djangoproject.com/en/3.0/topics/security/#host-headers-virtual-hosting). We just need to tell it the name of the host we're using. Open up myproject/settings.py again, and edit the ALLOWED_HOSTS line:
+
+```
+ALLOWED_HOSTS = ["[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com"]
+```
+
+Observe in the console that the development server automatically reloads as soon as you change this file - this can save a lot of time when testing! If you closed the development server by pressing <kbd>Ctrl</kbd>+<kbd>C</kbd> (or it crashed...) you can restart it with the `runserver` command used above.
+
+Now reload <https://[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/> - if you see the rocket launch, we've successfully configured Django!
+
+To verify that your superuser works, go to [the “/admin” page](https://[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/admin) and enter the name and password you specified when creating the superuser. You should see a full interface for managing users!
 
