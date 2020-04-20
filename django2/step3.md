@@ -26,11 +26,11 @@ With that out of the way, we're ready to set up a Django project and connect it 
 django-admin.py startproject myproject .
 ```{{execute}}
 
-This creates a subdirectory named "myproject" under the current directory with an initial project configuration. By default, Django is configured to use SQLite as its backend. To use Postgres instead, “myproject/settings.py” needs to be updated:
+This creates a subdirectory named "myproject" under the current directory with an initial project configuration. By default, Django is configured to use SQLite as its backend. To use Postgres instead, `myproject/myproject/settings.py`{{open}} needs to be updated:
 
 Scroll down to the Database section, and replace it with settings for Postgres
 
-<pre class="file" data-filename="/var/projects/myproject/myproject/settings.py" data-target="open">
+```
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -41,7 +41,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-</pre>
+```
 
 Once you’ve got things pointed to the Postgres database, you can build the default schema. If you didn’t know already, Django was designed with user access in mind, so by default a Django application will create a database schema involving users, groups, and permissions. To create the schema, generate a migration with the manage.py script:
 
@@ -75,7 +75,7 @@ This specifies the port as 5000, so try <https://[[HOST_SUBDOMAIN]]-5000-[[KATAC
 
 > DisallowedHost at /
 
-This is **good** - Django is configured by default to protect against [Host forgery attacks](https://docs.djangoproject.com/en/3.0/topics/security/#host-headers-virtual-hosting). We just need to tell it the name of the host we're using. Open up myproject/settings.py again, and edit the ALLOWED_HOSTS line:
+This is **good** - Django is configured by default to protect against [Host forgery attacks](https://docs.djangoproject.com/en/3.0/topics/security/#host-headers-virtual-hosting). We just need to tell it the name of the host we're using. Open up `/var/projects/myproject/myproject/settings.py`{{open}} again, and edit the ALLOWED_HOSTS line:
 
 ```
 ALLOWED_HOSTS = ["[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com"]
@@ -87,3 +87,4 @@ Now reload <https://[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katac
 
 To verify that your superuser works, go to [the “/admin” page](https://[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/admin) and enter the name and password you specified when creating the superuser. You should see a full interface for managing users!
 
+Ok, now hit <kbd>Ctrl</kbd>+<kbd>C</kbd>{{execute interrupt}}  to kill the development server and let's build a real app...

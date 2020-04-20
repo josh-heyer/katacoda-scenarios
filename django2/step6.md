@@ -1,4 +1,4 @@
-We need to tell Django how to pull stuff out of the database and display it. In Django, that's done with a "view" - so by editing the “cars/views.py” file, we can accomplish this:
+We need to tell Django how to pull stuff out of the database and display it. In Django, that's done with a "view" - so by editing the `.myproject/cars/views.py`{{open}} file, we can accomplish this:
 
 ```
 from django.shortcuts import render
@@ -14,7 +14,7 @@ def car_detail(request, pk):
     return render(request, "car_detail.html", context)
 ```
 
-We also need to define a template so that the “views.py” procedures have a place to send the data. First, we create a “cars/templates/base.html” file that contains the more generic elements of an HTML page:
+We also need to define a template so that the “views.py” procedures have a place to send the data. First, we create a `./myproject/cars/templates/base.html`{{open}} file that contains the more generic elements of an HTML page:
 
 <pre class="file" data-filename="/var/projects/myproject/cars/templates/base.html" data-target="replace">&lt;html&gt;
     &lt;head&gt;
@@ -30,43 +30,41 @@ We also need to define a template so that the “views.py” procedures have a p
     &lt;/body&gt;
 &lt;/html&gt;</pre>
 
-Then, we define how the “car_detail.html” template will look, adding it to cars/templates as well:
+Then, we define how the `/var/projects/myproject/cars/templates/car_detail.html`{{open}} template will look:
 
-```
-{% extends "base.html" %}
+<pre class="file" data-filename="/var/projects/myproject/cars/templates/car_detail.html" data-target="replace">{% extends "base.html" %}
 {% block page_content %}
-        <div class="mw6 center pa3 sans-serif">
-            <h1 class="mb4">Driver: {{ drivers.name | linebreaks }}</h1>
-            <header class="b mb2">License: {{ drivers.license }}</header>
+        &lt;div class="mw6 center pa3 sans-serif"&gt;
+            &lt;h1 class="mb4"&gt;Driver: {{ drivers.name | linebreaks }}&lt;/h1&gt;
+            &lt;header class="b mb2"&gt;License: {{ drivers.license }}&lt;/header&gt;
         {% for v in vehicles %}
-            <div class="pa2 mb3 striped--near-white">
-                <div class="pl2">
-                    <p class="mb2">Make/Model: {{ v.make }} {{ v.model }}</p>
-                    <p class="mb2">Year: {{ v.year }}</p>
-                    <p class="mb2">Vin: {{ v.vin }}</p>
-                </div>
-            </div>
+            &lt;div class="pa2 mb3 striped--near-white"&gt;
+                &lt;div class="pl2"&gt;
+                    &lt;p class="mb2"&gt;Make/Model: {{ v.make }} {{ v.model }}&lt;/p&gt;
+                    &lt;p class="mb2"&gt;Year: {{ v.year }}&lt;/p&gt;
+                    &lt;p class="mb2"&gt;Vin: {{ v.vin }}&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
         {% endfor %}
-        </div>
+        &lt;/div&gt;
 {% endblock %}
-```
+</pre>
 
-Finally, we need to tell the webserver how to route the traffic. First, in “cars/urls.py”, we define how the REST behavior works:
+Finally, we need to tell the webserver how to route the traffic. First, in `/var/projects/myproject/cars/urls.py`{{open}}, we define how the REST behavior works:
 
-```
-from django.urls import path
+<pre class="file" data-filename="/var/projects/myproject/cars/models.py" data-target="replace">from django.urls import path
 from . import views
 
 urlpatterns = [
-    path("<int:pk>/", views.car_detail, name="car_detail"),
+    path("&lt;int:pk&gt;/", views.car_detail, name="car_detail"),
 ]
-```{{copy}}
+</pre>
 
 Note that this will allow us to retrieve Car and Driver objects based on the ID provided in the URL.
 
-Then, in “myproject/urls.py,” we define the root URL for the “cars” application:
+Then, in `/var/projects/myproject/urls.py`{{open}} we define the root URL for the “cars” application:
 
-```
+<pre class="file" data-filename="/var/projects/myproject/urls.py" data-target="replace">
 from django.contrib import admin
 from django.urls import path, include
 
@@ -74,7 +72,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("cars/", include("cars.urls")),
 ]
-```{{copy}}
+</pre>
 
 Now spin up the webserver again:
 
