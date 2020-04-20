@@ -31,14 +31,14 @@
       }
     ],
     "intro": {
-      "courseData": "courseBase.sh",
+      "code": "courseBase.sh",
       "text": "intro.md"
     },
     "finish": {
       "text": "finish.md"
     },
     "assets": {
-      "client": [{"file": "*", "target": "/"}]
+      "client": [{"file": "*", "target": "~/"}]
     }
  },
   "environment": {
