@@ -34,6 +34,7 @@
     ],
     "intro": {
       "code": "courseBase.sh",
+      "courseData": "backgroundCopy.sh"
       "text": "intro.md"
     },
     "finish": {
@@ -41,7 +42,7 @@
     },
     "assets": {
       "client": [
-         {"file": "docker-compose.yml", "target": "~/"}
+         {"file": "*", "target": "~/"}
       ],
       "host01": [
          {"file": "base.html", "target": "/var/projects/myproject/cars/templates/"},
