@@ -34,7 +34,7 @@
     ],
     "intro": {
       "code": "courseBase.sh",
-      "courseData": "backgroundCopy.sh"
+      "courseData": "backgroundCopy.sh",
       "text": "intro.md"
     },
     "finish": {
