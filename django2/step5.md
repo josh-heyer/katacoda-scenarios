@@ -11,13 +11,13 @@ Take a look in the database, and you’ll see that the table has been created wi
 (the next two commands will require you to enter a password - it's "password")
 
 ```
-psql -h db -d demo -U postgres -c '\d'
+psql -h localhost -d demo -U postgres -c '\d'
 ```{{execute}}
 
 I also created some random data for the purposes of this tutorial:
 
 ```
-psql -h db -d demo -U postgres -f - <<"EOF"
+psql -h localhost -d demo -U postgres -f - <<"EOF"
 Insert Into cars_driver (name, license) Values
    ( 'John Doe', 'Z1234567' ),
    ( 'Jane Doe', 'Z9876543')
