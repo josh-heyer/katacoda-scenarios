@@ -30,7 +30,7 @@ This creates a subdirectory named "myproject" under the current directory with a
 
 Scroll down to the Database section, and replace it with settings for Postgres
 
-```
+<pre class="file" data-filename="/var/projects/myproject/myproject/settings.py" data-target="open">
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -41,7 +41,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-```
+</pre>
 
 Once you’ve got things pointed to the Postgres database, you can build the default schema. If you didn’t know already, Django was designed with user access in mind, so by default a Django application will create a database schema involving users, groups, and permissions. To create the schema, generate a migration with the manage.py script:
 
@@ -79,7 +79,7 @@ This is **good** - Django is configured by default to protect against [Host forg
 
 ```
 ALLOWED_HOSTS = ["[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com"]
-```
+```{{copy}}
 
 Observe in the console that the development server automatically reloads as soon as you change this file - this can save a lot of time when testing! If you closed the development server by pressing <kbd>Ctrl</kbd>+<kbd>C</kbd> (or it crashed...) you can restart it with the `runserver` command used above.
 

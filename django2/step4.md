@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cars' # <-- add that
 ]
-```
+```{{copy}}
 
 Let’s tell the framework what a Car and a Driver look like, by defining them in “cars/models.py”:
 
@@ -47,6 +47,6 @@ class Car(models.Model):
     year = models.IntegerField()
     vin = models.TextField()
     owner = models.ForeignKey("Driver", on_delete=models.SET_NULL, null=True)
-```
+```{{copy}}
 
 

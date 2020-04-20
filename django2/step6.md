@@ -16,21 +16,19 @@ def car_detail(request, pk):
 
 We also need to define a template so that the “views.py” procedures have a place to send the data. First, we create a “cars/templates/base.html” file that contains the more generic elements of an HTML page:
 
-```
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<pre class="file" data-filename="/var/projects/myproject/cars/templates/base.html" data-target="replace">&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
 
-        <title>Contacts</title>
-        <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
-    </head>
-    
-    <body>
+        &lt;title&gt;Contacts&lt;/title&gt;
+        &lt;link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
 {% block page_content %}{% endblock %}
-    </body>
-</html>
-```
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
 
 Then, we define how the “car_detail.html” template will look, adding it to cars/templates as well:
 
@@ -62,7 +60,7 @@ from . import views
 urlpatterns = [
     path("<int:pk>/", views.car_detail, name="car_detail"),
 ]
-```
+```{{copy}}
 
 Note that this will allow us to retrieve Car and Driver objects based on the ID provided in the URL.
 
@@ -76,7 +74,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("cars/", include("cars.urls")),
 ]
-```
+```{{copy}}
 
 Now spin up the webserver again:
 
@@ -84,7 +82,7 @@ Now spin up the webserver again:
 python manage.py runserver 0.0.0.0:5000
 ```{{execute}}
 
-And visit [127.0.0.1:5000](https://[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/cars/1/) to view the results.
+And visit <https://[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/cars/1/> to view the results.
 
 
 Change the “1” to a “2” in the URL, and we will get the Driver with `id=2` and the Cars owned by that Driver:
