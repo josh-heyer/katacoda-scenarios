@@ -44,11 +44,11 @@
   "environment": {
     "showdashboard": true,
     "uilayout": "editor-terminal",
-    "uieditorpath": "~/djangoprojects"
+    "uieditorpath": "~/djangoprojects",
      "terminals": [
          {"name": "host01", "target": "host01"},
          {"name": "client01", "target": "client01"}
-     ],
+     ]
   },
   "backend": {
     "imageid": "docker"
