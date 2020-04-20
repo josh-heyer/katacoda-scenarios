@@ -44,7 +44,13 @@
          {"file": "docker-compose.yml", "target": "~/"}
       ],
       "host01": [
-         {"file": "*", "target": "/var/projects"}        
+         {"file": "base.html", "target": "/var/projects/myproject/cars/templates/"},
+         {"file": "car_detail.html", "target": "/var/projects/myproject/cars/templates/"},
+         {"file": "cars_urls.py", "target": "/var/projects/myproject/cars/urls.py"},
+         {"file": "models.py", "target": "/var/projects/myproject/cars/"},
+         {"file": "views.py", "target": "/var/projects/myproject/cars/"},
+         {"file": "settings.py", "target": "/var/projects/myproject/myproject/"},
+         {"file": "urls.py", "target": "/var/projects/myproject/myproject/"}
       ]
     }
  },
