@@ -1,4 +1,4 @@
 cd ~
 docker-compose run --service-ports demo
-clear
+#clear
 echo 'Ready to continue!'
