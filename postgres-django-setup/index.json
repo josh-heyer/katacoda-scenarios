@@ -42,16 +42,23 @@
     },
     "assets": {
       "client": [
-         {"file": "*", "target": "~/"}
+         {"file": "docker-compose.yml", "target": "~/"},
+         {"file": "base.html", "target": "~/tutorial"},
+         {"file": "car_detail.html", "target": "~/tutorial"},
+         {"file": "cars_urls.py", "target": "~/tutorial"},
+         {"file": "models.py", "target": "~/tutorial"},
+         {"file": "views.py", "target": "~/tutorial"},
+         {"file": "settings.py", "target": "~/tutorial"},
+         {"file": "urls.py", "target": "~/tutorial"}
       ],
       "host01": [
-         {"file": "base.html", "target": "/var/projects/myproject/cars/templates/"},
-         {"file": "car_detail.html", "target": "/var/projects/myproject/cars/templates/"},
-         {"file": "cars_urls.py", "target": "/var/projects/myproject/cars/urls.py"},
-         {"file": "models.py", "target": "/var/projects/myproject/cars/"},
-         {"file": "views.py", "target": "/var/projects/myproject/cars/"},
-         {"file": "settings.py", "target": "/var/projects/myproject/myproject/"},
-         {"file": "urls.py", "target": "/var/projects/myproject/myproject/"}
+         {"file": "base.html", "target": "/var/projects/templ/cars/templates/"},
+         {"file": "car_detail.html", "target": "/var/projects/templ/cars/templates/"},
+         {"file": "cars_urls.py", "target": "/var/projects/templ/cars/urls.py"},
+         {"file": "models.py", "target": "/var/projects/templ/cars/"},
+         {"file": "views.py", "target": "/var/projects/templ/cars/"},
+         {"file": "settings.py", "target": "/var/projects/templ/myproject/"},
+         {"file": "urls.py", "target": "/var/projects/templ/myproject/"}
       ]
     }
  },
