@@ -1,0 +1,49 @@
+{
+  "title": "Developing a simple Django + Postgres web application",
+  "description": "Walk through setting up a local Python development environment to use Postgres and Django",
+  "difficulty": "Beginner",
+  "time": "10 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Creating a virtual Python environment",
+        "text": "step1.md"
+      },
+      {
+        "title": "Installing Django",
+        "text": "step2.md"
+      },
+      {
+        "title": "Connecting Django to Postgres",
+        "text": "step3.md"
+      },
+      {
+        "title": "Defining data models",
+        "text": "step4.md"
+      },
+      {
+        "title": "Creating and running a schema migration",
+        "text": "step5.md"
+      },
+      {
+        "title": "Creating Django views to present your data",
+        "text": "step6.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+
+    }
+ },
+  "environment": {
+    "uilayout": "editor-terminal"
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
