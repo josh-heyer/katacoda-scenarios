@@ -43,7 +43,7 @@
  },
   "environment": {
     "uilayout": "editor-terminal",
-    "uieditorpath": "/djangoprojects"
+    "uieditorpath": "~/djangoprojects"
   },
   "backend": {
     "imageid": "docker"
