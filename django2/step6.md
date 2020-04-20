@@ -1,7 +1,6 @@
-We need to tell Django how to pull stuff out of the database and display it. In Django, that's done with a "view" - so by editing the `.myproject/cars/views.py`{{open}} file, we can accomplish this:
+We need to tell Django how to pull stuff out of the database and display it. In Django, that's done with a "view" - so by editing the `myproject/cars/views.py`{{open}} file, we can accomplish this:
 
-```
-from django.shortcuts import render
+<pre class="file" data-filename="myproject/cars/views.html" data-target="replace">from django.shortcuts import render
 from cars.models import Car, Driver
 
 def car_detail(request, pk):
@@ -12,11 +11,11 @@ def car_detail(request, pk):
         "drivers": owner_obj,
     }
     return render(request, "car_detail.html", context)
-```
+</pre>
 
-We also need to define a template so that the “views.py” procedures have a place to send the data. First, we create a `./myproject/cars/templates/base.html`{{open}} file that contains the more generic elements of an HTML page:
+We also need to define a template so that the “views.py” procedures have a place to send the data. First, we create a `myproject/cars/templates/base.html`{{open}} file that contains the more generic elements of an HTML page:
 
-<pre class="file" data-filename="/var/projects/myproject/cars/templates/base.html" data-target="replace">&lt;html&gt;
+<pre class="file" data-filename="myproject/cars/templates/base.html" data-target="replace">&lt;html&gt;
     &lt;head&gt;
         &lt;meta charset="utf-8"&gt;
         &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
@@ -30,9 +29,9 @@ We also need to define a template so that the “views.py” procedures have a p
     &lt;/body&gt;
 &lt;/html&gt;</pre>
 
-Then, we define how the `/var/projects/myproject/cars/templates/car_detail.html`{{open}} template will look:
+Then, we define how the `myproject/cars/templates/car_detail.html`{{open}} template will look:
 
-<pre class="file" data-filename="/var/projects/myproject/cars/templates/car_detail.html" data-target="replace">{% extends "base.html" %}
+<pre class="file" data-filename="myproject/cars/templates/car_detail.html" data-target="replace">{% extends "base.html" %}
 {% block page_content %}
         &lt;div class="mw6 center pa3 sans-serif"&gt;
             &lt;h1 class="mb4"&gt;Driver: {{ drivers.name | linebreaks }}&lt;/h1&gt;
@@ -50,9 +49,9 @@ Then, we define how the `/var/projects/myproject/cars/templates/car_detail.html`
 {% endblock %}
 </pre>
 
-Finally, we need to tell the webserver how to route the traffic. First, in `/var/projects/myproject/cars/urls.py`{{open}}, we define how the REST behavior works:
+Finally, we need to tell the webserver how to route the traffic. First, in `myproject/cars/urls.py`{{open}}, we define how the REST behavior works:
 
-<pre class="file" data-filename="/var/projects/myproject/cars/models.py" data-target="replace">from django.urls import path
+<pre class="file" data-filename="myproject/cars/models.py" data-target="replace">from django.urls import path
 from . import views
 
 urlpatterns = [
@@ -62,9 +61,9 @@ urlpatterns = [
 
 Note that this will allow us to retrieve Car and Driver objects based on the ID provided in the URL.
 
-Then, in `/var/projects/myproject/urls.py`{{open}} we define the root URL for the “cars” application:
+Then, in `myproject/myproject/urls.py`{{open}} we define the root URL for the “cars” application:
 
-<pre class="file" data-filename="/var/projects/myproject/urls.py" data-target="replace">
+<pre class="file" data-filename="myproject/myproject/urls.py" data-target="replace">
 from django.contrib import admin
 from django.urls import path, include
 

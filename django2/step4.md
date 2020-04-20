@@ -18,7 +18,7 @@ This creates a basic set of Python classes for us in a subdirectory with the nam
 ls -lR cars
 ```{{execute}}
 
-This gives us the structure of an app. Before we go further, we need to tell Django that it's part of our project, by editing the INSTALLED_APPS list in `/var/projects/myproject/myproject/settings.py`{{open}}:
+This gives us the structure of an app. Before we go further, we need to tell Django that it's part of our project, by editing the INSTALLED_APPS list in `myproject/myproject/settings.py`{{open}}:
 
 ```
 INSTALLED_APPS = [
@@ -32,9 +32,9 @@ INSTALLED_APPS = [
 ]
 ```{{copy}}
 
-Let’s tell the framework what a Car and a Driver look like, by defining them in `/var/projects/myproject/cars/models.py`{{open}}:
+Let’s tell the framework what a Car and a Driver look like, by defining them in `/myproject/cars/models.py`{{open}}:
 
-<pre class="file" data-filename="/var/projects/myproject/cars/models.py" data-target="replace">from django.db import models
+<pre class="file" data-filename="/myproject/cars/models.py" data-target="replace">from django.db import models
 
 class Driver(models.Model):
     name = models.TextField()
