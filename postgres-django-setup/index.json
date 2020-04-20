@@ -30,8 +30,7 @@
       },
       {
         "title": "Creating Django views to present your data",
-        "text": "step6.md",
-        "courseData": "step6Data.sh"
+        "text": "step6.md"
       }
     ],
     "intro": {
