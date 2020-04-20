@@ -84,7 +84,7 @@ Now spin up the webserver again:
 python manage.py runserver 0.0.0.0:5000
 ```{{execute}}
 
-And visit [127.0.0.1:5000](https://[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/cars/1/) to view the results.
+And visit <https://[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/cars/1/> to view the results.
 
 
 Change the “1” to a “2” in the URL, and we will get the Driver with `id=2` and the Cars owned by that Driver:
