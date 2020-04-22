@@ -1,2 +1,2 @@
 # /bin/bash
-echo "done"
+[[ $(cat /var/projects/myproject/cars/views.py | grep "render(request") ]]  && [[ $(cat /var/projects/myproject/cars/templates/car_detail.html | grep "block page_content") ]] && [[ $(cat /var/projects/myproject/cars/templates/base.html | grep "block page_content") ]] && echo "done"

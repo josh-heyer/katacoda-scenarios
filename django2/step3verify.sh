@@ -1,2 +1,2 @@
 # /bin/bash
-echo "done"
+[[ $(django-admin.py --version) ]] && echo "done"

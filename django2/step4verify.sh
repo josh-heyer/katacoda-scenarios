@@ -1,2 +1,2 @@
 # /bin/bash
-echo "done"
+[ [[ $(pip list | grep "psycopg2") ]] && echo "done"

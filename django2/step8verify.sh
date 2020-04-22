@@ -1,2 +1,2 @@
 # /bin/bash
-echo "done"
+[[ $(cat /var/projects/myproject/cars/models.py | grep "Car(models.Model)") ]] && echo "done"

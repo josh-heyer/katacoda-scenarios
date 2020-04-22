@@ -1,2 +1,2 @@
 # /bin/bash
-echo "done"
+[ -d "/var/projects/myproject" ] && [[ $(python manage.py diffsettings | grep 'cars') ]] && echo "done"

@@ -1,2 +1,2 @@
 # /bin/bash
-echo "done"
+[ [[ $(python manage.py diffsettings | grep environments.katacoda.com) ]] && echo "done"
