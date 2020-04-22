@@ -12,7 +12,7 @@ Now run the migration to actually create that schema:
 python manage.py migrate cars
 ```{{execute}}
 
-Take a look in the database, and you’ll see that the table has been created with the format “<project_name>_<object_name>”:
+Take a look in the database, and you’ll see that the tables have been created with the format `<project_name>_<object_name>`:
 
 ```
 psql "postgresql://postgres:password@localhost/demo" -c '\d'
