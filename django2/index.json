@@ -1,5 +1,5 @@
 {
-  "title": "Developing a simple Django + Postgres web application r10",
+  "title": "Developing a simple Django + Postgres web application r12",
   "description": "Walk through setting up a local Python development environment to use Postgres and Django",
   "difficulty": "Beginner",
   "time": "10 minutes",
@@ -8,50 +8,61 @@
       {
         "title": "Connecting to and querying Postgres",
         "text": "step1.md",
-         "courseData": "step1.sh"
+         "courseData": "step1.sh",
+         "verify": "step1verify.sh"
       },
       {
         "title": "Creating a virtual Python environment",
-        "text": "step2.md"
+        "text": "step2.md",
+         "verify": "step2verify.sh"
       },
       {
         "title": "Installing Django",
-        "text": "step3.md"
+        "text": "step3.md",
+         "verify": "step3verify.sh"
       },
       {
         "title": "Installing the psycopg Postgres adapter",
-        "text": "step4.md"
+        "text": "step4.md",
+         "verify": "step4verify.sh"
       },
       {
         "title": "Connecting Django to Postgres",
-        "text": "step5.md"
+        "text": "step5.md",
+         "verify": "step5verify.sh"
       },
       {
         "title": "Configuring our Django project",
-        "text": "step6.md"
+        "text": "step6.md",
+         "verify": "step6verify.sh"
       },
       {
         "title": "Creating a Django app",
-        "text": "step7.md"
+        "text": "step7.md",
+         "verify": "step7verify.sh"
       },
       {
         "title": "Defining data models to represent our data",
         "text": "step8.md",
-         "courseData": "step8.sh"
+         "courseData": "step8.sh",
+         "verify": "step8verify.sh"
       },
       {
         "title": "Creating and running a schema migration",
-        "text": "step9.md"
+        "text": "step9.md",
+         "verify": "step9verify.sh"
       },
       {
         "title": "Creating a Django views to present our data",
         "text": "step10.md",
-         "courseData": "step10.sh"
+         "courseData": "step10.sh",
+         "verify": "step10verify.sh"
       },
       {
         "title": "Setting up URL routing for our Django app",
         "text": "step11.md",
-         "courseData": "step11.sh"
+         "courseData": "step11.sh",
+         "verify": "step11verify.sh"
       },
       {
         "title": "Run the app! ",
