@@ -1,31 +1,31 @@
-Now we can install Django:
+When working with Python, it is a good practice to use a virtual environment which allows tools and libraries to be isolated from those of other apps in use or under development on your workstation. This prevents dependency collisions and undesired behaviors that would otherwise arise from premature or unintended version changes - think of it as good Python hygiene. There are many tools available for this purpose: complete virtual machines such as VirtualBox, container systems such as Docker, and several Python-specific solutions such as Virtualenv, Pipenv, and Conda.
+
+For this tutorial, we'll be using [virtualenv](https://virtualenv.pypa.io/en/latest/) along with Python v. 3.x. You can install virtualenv using pip:
 
 ```
-pip install django
+pip install virtualenv
 ```{{execute}}
+(if you're not already logged in as root, you'll want to prefix that command with `sudo `. This is the ONLY step that needs root access!)
 
-...And verify that it was installed:
+
+We'll use virtualenv to keep all of our changes from spilling out of the project directory we created in step #1. We'll also specify the version of Python we wish to use in this project:
 
 ```
-django-admin.py --version
+virtualenv -p python3 /var/projects/myproject/myprojectenv
+
 ```{{execute}}
 
-Remember, this *only* affects our virtual Python environment - if we deactivate that environment with the `deactivate` command,
+This command will have created a local - "virtual" - Python environment in the named directory below our project, which you can now observe:
 
 ```
-deactivate
+ls /var/projects/myproject/myprojectenv
 ```{{execute}}
 
-...Then django disappears:
-
-```
-django-admin.py --version
-```{{execute}}
-
-> bash: django-admin.py: command not found
-
-Ok, let's jump back into our virtual env and proceed:
+To start work, we need to "activate" this environment - once activated, all Python commands will operate using our virtual environment. 
 
 ```
 source /var/projects/myproject/myprojectenv/bin/activate
+
 ```{{execute}}
+
+Your command prompt should now have a `(myprojectenv) ` prefix, indicating your active virtual environment. Now we're ready to get to work!

@@ -1,33 +1,51 @@
-
-Then, make the migration to build the tables in the database, and run it:
+We're ready to set up a Django project and connect it to Postgres. That starts with... The `startproject` command!
 
 ```
-python manage.py makemigrations cars
-python manage.py migrate cars
+django-admin.py startproject myproject .
 ```{{execute}}
 
-Take a look in the database, and you’ll see that the table has been created with the format “<project_name>_<object_name>”:
+This creates a subdirectory named "myproject" under the current directory with an initial project configuration. By default, Django is configured to use SQLite as its backend. But, we want Postgres!
+
+Open `myproject/myproject/settings.py`{{open}} 
+
+Scroll down to the Database section, and replace the `DATABASES` definition with settings for Postgres as follows:
+
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'demo',
+        'USER': 'postgres',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+```{{copy}}
+
+
+## Building and running migrations
+
+Django uses migrations to create its schemas. If you didn’t know already, Django was designed with user access in mind, so by default a Django application will create a database schema involving users, groups, and permissions. 
+
+To create the default schema, generate a migration with the manage.py script:
+
+```
+python manage.py makemigrations
+```{{execute}}
+
+(there won't be anything listed here, yet)
+
+And then run the migration:
+
+```
+python manage.py migrate
+```{{execute}}
+
+We can use Postgres's `psql` command to list the tables created for us by that migration:
 
 ```
 psql "postgresql://postgres:password@localhost/demo" -c '\d'
 ```{{execute}}
 
-I also created some random data for the purposes of this tutorial:
-
-```
-psql "postgresql://postgres:password@localhost/demo" -f - <<"EOF"
-Insert Into cars_driver (name, license) Values
-   ( 'John Doe', 'Z1234567' ),
-   ( 'Jane Doe', 'Z9876543')
-;
-
-Insert Into cars_car (make, model, year, vin, owner_id) Values 
-   ('Ford', 'F-150', '2004', '01083da2df15d6ebfe62186418a76863', 1), 
-   ('Toyota', 'Sienna', '2014', '53092a17afa460689ca931f0d459e399', 1), 
-   ('Honda', 'Civic', '2018', '844c56840b5fc26d414cf238381a5f1a', 2), 
-   ('GMC', 'Sierra', '2012', '29aeffa4d5aa21d25d7196db3728f72c', 2) 
-; 
-EOF
-```{{execute}}
-
-Now we have a data model, we've migrated our database schema to match it, and put some data into the resulting tables... Next, we'll work on getting the data *out*!
+In addition to user management, there are also tables for Django to track migrations themselves - this allows it to automatically update our own schemas as they change over time.

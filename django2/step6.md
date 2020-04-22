@@ -1,87 +1,40 @@
-We need to tell Django how to pull stuff out of the database and display it. In Django, that's done with a "view" - so by editing the `myproject/cars/views.py`{{open}} file, we can accomplish this:
+Since we've allowed Django to create a user management system, we should create a superuser to manage the app:
 
-<pre class="file" data-filename="myproject/cars/views.py" data-target="replace">from django.shortcuts import render
-from cars.models import Car, Driver
+```
+python manage.py createsuperuser
+```{{execute}}
 
-def car_detail(request, pk):
-    owner_obj = Driver.objects.get(pk=pk)
-    car_objs = Car.objects.filter(owner_id=owner_obj.id)
-    context = {
-        "vehicles": car_objs,
-        "drivers": owner_obj,
-    }
-    return render(request, "car_detail.html", context)
-</pre>
+The terminal is prompting you for information now: enter some name and password (one you can remember for just a minute), and an email (not used for this tutorial).
 
-We also need to define a template so that the “views.py” procedures have a place to send the data. First, we create a `myproject/cars/templates/base.html`{{open}} file that contains the more generic elements of an HTML page:
-
-<pre class="file" data-filename="myproject/cars/templates/base.html" data-target="replace">&lt;html&gt;
-    &lt;head&gt;
-        &lt;meta charset="utf-8"&gt;
-        &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
-
-        &lt;title&gt;Contacts&lt;/title&gt;
-        &lt;link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/&gt;
-    &lt;/head&gt;
-
-    &lt;body&gt;
-{% block page_content %}{% endblock %}
-    &lt;/body&gt;
-&lt;/html&gt;</pre>
-
-Then, we define how the `myproject/cars/templates/car_detail.html`{{open}} template will look:
-
-<pre class="file" data-filename="myproject/cars/templates/car_detail.html" data-target="replace">{% extends "base.html" %}
-{% block page_content %}
-        &lt;div class="mw6 center pa3 sans-serif"&gt;
-            &lt;h1 class="mb4"&gt;Driver: {{ drivers.name | linebreaks }}&lt;/h1&gt;
-            &lt;header class="b mb2"&gt;License: {{ drivers.license }}&lt;/header&gt;
-        {% for v in vehicles %}
-            &lt;div class="pa2 mb3 striped--near-white"&gt;
-                &lt;div class="pl2"&gt;
-                    &lt;p class="mb2"&gt;Make/Model: {{ v.make }} {{ v.model }}&lt;/p&gt;
-                    &lt;p class="mb2"&gt;Year: {{ v.year }}&lt;/p&gt;
-                    &lt;p class="mb2"&gt;Vin: {{ v.vin }}&lt;/p&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        {% endfor %}
-        &lt;/div&gt;
-{% endblock %}
-</pre>
-
-Finally, we need to tell the webserver how to route the traffic. First, in `myproject/cars/urls.py`{{open}}, we define how the REST behavior works:
-
-<pre class="file" data-filename="myproject/cars/urls.py" data-target="replace">from django.urls import path
-from . import views
-
-urlpatterns = [
-    path("&lt;int:pk&gt;/", views.car_detail, name="car_detail"),
-]
-</pre>
-
-Note that this will allow us to retrieve Car and Driver objects based on the ID provided in the URL.
-
-Then, in `myproject/myproject/urls.py`{{open}} we define the root URL for the “cars” application:
-
-<pre class="file" data-filename="myproject/myproject/urls.py" data-target="replace">
-from django.contrib import admin
-from django.urls import path, include
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path("cars/", include("cars.urls")),
-]
-</pre>
-
-Now spin up the webserver again:
+Now, the moment of truth! Start the application up:
 
 ```
 python manage.py runserver 0.0.0.0:5000
 ```{{execute}}
 
-And visit <https://[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/cars/1/> to view the results.
+We specified port 5000, which in Katacoda means our new site is at a link like this:
+
+<https://[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/> (on your own machine, it'd be at `localhost:500` instead)
+
+You'll see an error on that page:
+
+> DisallowedHost at /
+
+This is **good!** Django is configured by default to protect against [Host forgery attacks](https://docs.djangoproject.com/en/3.0/topics/security/#host-headers-virtual-hosting). We just need to tell it the name of the host we're using. 
+
+Open `myproject/myproject/settings.py`{{open}} again, and change the ALLOWED_HOSTS line:
+
+```
+ALLOWED_HOSTS = ["[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com"]
+```{{copy}}
 
 
-Change the “1” to a “2” in the URL, and we will get the Driver with `id=2` and the Cars owned by that Driver:
+Observe in the console that the development server automatically reloads as soon as you change this file - this can save a lot of time when testing!
 
-This is a very simple example of how Django can be used to serve up web pages with data from PostgreSQL. More information about how to define relationships between Django and PostgreSQL (many-to-many relationships, complex joins, complex filtering, etc.) can be found at the [Django documentation](https://docs.djangoproject.com/en/3.0/ref/models/).
+(If you closed the development server by pressing <kbd>Ctrl</kbd>+<kbd>C</kbd> (or it crashed...) you can restart it with the `runserver` command used at the start of this step)
+
+Now reload <https://[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/> - if you see the rocket launch, we've successfully configured Django!
+
+To verify that your superuser works, go to [the “/admin” page](https://[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/admin) and enter the name and password you specified when creating the superuser. You should see a full interface for managing users!
+
+Ok, now hit <kbd>Ctrl</kbd>+<kbd>C</kbd>`  `{{execute interrupt}} in the terminal to kill the development server and let's build a real app...

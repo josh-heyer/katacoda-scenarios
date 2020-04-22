@@ -1,51 +1,23 @@
-At this point, we’ve got a Postgres database running and connected to a Django project. Now, how can we build out Django further, and leverage the ORM to do the heavy lifting of interacting with the database?
+To use Postgres from Python, we'll want to use [psycopg2](https://www.psycopg.org/). This is what is known as a "database adapter library" - it adapts [the standard Python database API](https://www.python.org/dev/peps/pep-0249/) to work with [libpg](https://www.postgresql.org/docs/current/libpq.html), the standard Postgres client library. In other words, it lets us - and Django - talk to Postgres in a Pythonic fashion.
 
-Let’s make the app display a relationship between cars and their owners. Oh, but first: a quick note on Django terminology... 
-
-### Projects and Apps in Django
-
-In the previous step, we created a Django "project". This came with a lot of "stuff" right out of the box - a schema for user management, a default page, an administration UI... But now that we're ready to do some real work, we need to create what Django calls an "app" *within* our project. Each Django project can have multiple apps, intended to separate data and logic into groups of related code. 
-
-So we begin by going back to our old friend `manage.py` and telling it to set up a new app for us:
+We'll install psycopg2 into our virtual environment the same way we've installed everything else:
 
 ```
-python manage.py startapp cars
+pip install psycopg2
 ```{{execute}}
 
-This creates a basic set of Python classes for us in a subdirectory with the name we gave the app ("cars"):
+If you ever happen to see an error at this stage...
+
+> Error: pg_config executable not found.
+
+or
+
+> ./psycopg/psycopg.h:36:10: fatal error: libpq-fe.h: No such file or directory
+
+...then you'll need to pause and install the PostgreSQL dev libraries
 
 ```
-ls -lR cars
-```{{execute}}
-
-This gives us the structure of an app. Before we go further, we need to tell Django that it's part of our project, by editing the INSTALLED_APPS list in `myproject/myproject/settings.py`{{open}}:
-
+apt-get install libpq-dev
 ```
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'cars' # <-- add that
-]
-```{{copy}}
 
-Let’s tell the framework what a Car and a Driver look like, by defining them in `myproject/cars/models.py`{{open}}:
-
-<pre class="file" data-filename="myproject/cars/models.py" data-target="replace">from django.db import models
-
-class Driver(models.Model):
-    name = models.TextField()
-    license = models.TextField()
-    
-class Car(models.Model):
-    make = models.TextField()
-    model = models.TextField()
-    year = models.IntegerField()
-    vin = models.TextField()
-    owner = models.ForeignKey("Driver", on_delete=models.SET_NULL, null=True)
-</pre>
-
-
+This shouldn't be necessary for our tutorial, but it's worth keeping in mind when you set up your own development environment!
