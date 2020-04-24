@@ -6,18 +6,3 @@ We'll install psycopg2 into our virtual environment the same way we've installed
 pip install psycopg2
 ```{{execute}}
 
-If you ever happen to see an error at this stage...
-
-> Error: pg_config executable not found.
-
-or
-
-> ./psycopg/psycopg.h:36:10: fatal error: libpq-fe.h: No such file or directory
-
-...then you'll need to pause and install the PostgreSQL dev libraries
-
-```
-apt-get install libpq-dev
-```
-
-This shouldn't be necessary for our tutorial, but it's worth keeping in mind when you set up your own development environment!
