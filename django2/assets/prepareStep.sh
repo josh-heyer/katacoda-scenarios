@@ -25,4 +25,5 @@ case $1 in
     source /var/projects/myproject/myprojectenv/bin/activate
   ;;
 esac
-echo "Ready for Step #$1!"
+clear
+echo -e "\e[32mReady for Step #$1: $2\e[39m"

@@ -1,2 +1,2 @@
 #!/bin/bash
-source prepareStep.sh 12 "Run the app!"
+ source prepareStep.sh 12 "Run the app!"
