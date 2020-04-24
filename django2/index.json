@@ -1,5 +1,5 @@
 {
-  "title": "Developing a simple Django + Postgres web application r22",
+  "title": "Developing a simple Django + Postgres web application r23",
   "description": "Walk through setting up a local Python development environment to use Postgres and Django",
   "difficulty": "Beginner",
   "time": "10 minutes",
@@ -96,7 +96,7 @@
       "uilayout": "editor-terminal",
       "uieditorpath": "/var/projects",
       "exclusionPatterns": ["*/__*", "./myproject/myprojectenv/*"],
-      "uimessage1": "Welcome! Please wait for initialization & configuration to complete before proceding..."
+      "uimessage1": "Welcome! Please wait for initialization before proceeding..."
   },
   "backend": {
     "imageid": "ubuntu"
