@@ -1,5 +1,2 @@
 #!/bin/bash
-cd /var/projects/myproject
-source /var/projects/myproject/myprojectenv/bin/activate
-
-
+source prepareStep.sh 12 "Run the app!"

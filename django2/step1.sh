@@ -1,3 +1,2 @@
 #!/bin/bash
-touch /var/projects/cars.csv
-touch /var/projects/drivers.csv
+ source prepareStep.sh 1 "Katacoda's UI and some data to work with"

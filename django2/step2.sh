@@ -1,2 +1,2 @@
 #!/bin/bash
-cd /var/projects/myproject
+source prepareStep.sh 2 "Creating a virtual Python environment"

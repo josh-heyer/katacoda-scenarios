@@ -1,5 +1,5 @@
 {
-  "title": "Developing a simple Django + Postgres web application r20",
+  "title": "Developing a simple Django + Postgres web application r21",
   "description": "Walk through setting up a local Python development environment to use Postgres and Django",
   "difficulty": "Beginner",
   "time": "10 minutes",
@@ -87,7 +87,8 @@
     },
     "assets": {
       "host01": [
-       {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"}
+       {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+       {"file": "prepareStep.sh", "target": "/usr/local/bin/", "chmod": "+x"}
       ]
     }
  },
