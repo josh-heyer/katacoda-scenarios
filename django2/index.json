@@ -1,5 +1,5 @@
 {
-  "title": "Developing a simple Django + Postgres web application r18",
+  "title": "Developing a simple Django + Postgres web application r19",
   "description": "Walk through setting up a local Python development environment to use Postgres and Django",
   "difficulty": "Beginner",
   "time": "10 minutes",
@@ -14,31 +14,37 @@
       {
         "title": "Creating a virtual Python environment",
         "text": "step2.md",
+         "courseData": "step2.sh",
          "verify": "step2verify.sh"
       },
       {
         "title": "Installing Django",
         "text": "step3.md",
+         "courseData": "step3.sh",
          "verify": "step3verify.sh"
       },
       {
         "title": "Installing the psycopg Postgres adapter",
         "text": "step4.md",
+         "courseData": "step4.sh",
          "verify": "step4verify.sh"
       },
       {
         "title": "Connecting Django to Postgres",
         "text": "step5.md",
+         "courseData": "step5.sh",
          "verify": "step5verify.sh"
       },
       {
         "title": "Configuring our Django project",
         "text": "step6.md",
+         "courseData": "step6.sh",
          "verify": "step6verify.sh"
       },
       {
         "title": "Creating a Django app",
         "text": "step7.md",
+         "courseData": "step7.sh",
          "verify": "step7verify.sh"
       },
       {
@@ -50,6 +56,7 @@
       {
         "title": "Creating and running a schema migration",
         "text": "step9.md",
+         "courseData": "step9.sh",
          "verify": "step9verify.sh"
       },
       {

@@ -10,7 +10,7 @@ So we begin by going back to our old friend `manage.py` and telling it to set up
 
 ```
 python manage.py startapp cars
-```{{execute}}
+```{{execute interrupt}}
 
 This creates a basic set of Python classes for us in a subdirectory with the name we gave the app ("cars"):
 

@@ -30,5 +30,5 @@ source /var/projects/myproject/myprojectenv/bin/activate
 
 Your command prompt should now have a `(myprojectenv) ` prefix, indicating your active virtual environment. When deactivated (manually or when you close the terminal), you can be assured that your project configuration won't interfere with that of other Python projects on the same machine!
 
-[![](https://imgs.xkcd.com/comics/python_environment.png "The Python environmental protection agency wants to seal it in a cement chamber, with pictorial messages to future civilizations warning them about the danger of using sudo to install random Python packages.")](https://xkcd.com/1987/)
+[![](/scenario-examples/scenarios/displaying-images/assets/python_environment.png "The Python environmental protection agency wants to seal it in a cement chamber, with pictorial messages to future civilizations warning them about the danger of using sudo to install random Python packages.")](https://xkcd.com/1987/)
 
