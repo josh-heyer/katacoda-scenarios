@@ -1,0 +1,45 @@
+{
+  "title": "Connecting to Postgres from Java using JDBC",
+  "description": "Walk through the steps of connecting to a Postgres database via JDBC",
+  "difficulty": "Beginner",
+  "time": "5 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Step 1",
+        "text": "step1.md",
+        "verify": "step1verify.sh"
+      },
+      {
+        "text": "step2.md",
+        "code": "step2.sh",
+        "verify": "step2verify.sh"
+      },
+      {
+        "text": "step3.md",
+        "code": "step3.sh",
+        "verify": "step3verify.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "courseData": "courseBase.sh",
+      "code": "initProgress.sh"    
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+       {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+       {"file": "prepareStep.sh", "target": "/usr/local/bin/", "chmod": "+x"}
+      ]
+    }
+  },
+  "environment": {
+    "uilayout": "editor-terminal-split"
+  },
+  "backend": {
+    "imageid": "openjdk:15"
+  }
+}
