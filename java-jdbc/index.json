@@ -37,7 +37,7 @@
     }
   },
   "environment": {
-    "uilayout": "editor-terminal-split"
+    "uilayout": "editor-terminal"
   },
   "backend": {
     "imageid": "openjdk:15"
