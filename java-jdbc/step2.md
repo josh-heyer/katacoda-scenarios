@@ -1,12 +1,6 @@
 As long as JDBC can find the driver in our classpath, we won't need to do anything special to make it work - so let's write some code & try it out!
 
-Create a new Java file:
-
-```
-touch Example.java
-```{{execute}}
-
-Open `Example.java`{{open}} (click that link!)
+Start a new Java program, `Example.java`{{open}} (click that link!)
 
 And add the following snippet:
 
@@ -18,7 +12,7 @@ public class Example
    {
       try
       {
-         String url = "jdbc:postgresql://localhost:5432/demodb?user=postgres&amp;password=password";
+         String url = "jdbc:postgresql://localhost:5432/demo?user=postgres&amp;password=password";
          Connection conn = DriverManager.getConnection(url);
 
          Statement st = conn.createStatement();
@@ -41,7 +35,7 @@ public class Example
 Observe that all of the Postgres-specific information is contained in the connection URL...
 
 ```
-jdbc:postgresql://localhost:5432/demodb?user=postgres&amp;password=password
+jdbc:postgresql://localhost:5432/demo?user=postgres&password=password
 ```
 
 ...and in the query itself (which just pulls a list of tables from the system). JDBC uses the connection string to find the Postgres driver, and then hands the query to the driver to do the rest of the work.
