@@ -2,4 +2,4 @@ First, we need a JDBC *driver* - a bit of compiled Java code that'll tell JDBC h
 
 ```
 wget https://jdbc.postgresql.org/download/postgresql-42.2.13.jar
-```{execute}
+```{{execute}}

@@ -2,7 +2,7 @@ Ok, now let's run it!
 
 ```
 java Example.java
-```{execute}
+```{{execute}}
 
 Lotta tables for a brand-new database, eh? These are the system tables (and views) which exist to support the database itself (and allow you to do cool introspective things like this demo).
 
