@@ -93,7 +93,7 @@
     }
  },
   "environment": {
-      "uilayout": "editor-terminal",
+      "uilayout": "editor-terminal-split",
       "uieditorpath": "/var/projects",
       "exclusionPatterns": ["*/__*", "./myproject/myprojectenv/*"],
       "uimessage1": "Welcome! Please wait for initialization before proceeding..."

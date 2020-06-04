@@ -1,0 +1,11 @@
+{
+  "title": "Connecting to Postgres from Java",
+  "description": "Walk through the basics of accessing a Postgres database from Java using various technologies",
+  "courses": [
+    {
+      "course_id": "java-jdbc",
+      "title": "Connecting to Postgres from Java using JDBC",
+      "description": "Walk through the steps of connecting to a Postgres database via JDBC"
+    }
+  ]
+}
